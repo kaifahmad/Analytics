@@ -1,0 +1,32 @@
+{
+    "green": {
+        "NIFTY": {
+            "net": 0.6407185628742516,
+            "intra": 0.6010479041916168,
+            "netExtremes": 0.6197604790419161,
+            "gapAnalysys": 0.23353293413173654
+        },
+        "NIFTYBANK": {
+            "net": 0.6040419161676647,
+            "intra": 0.6931137724550899,
+            "netExtremes": 0.6901197604790419,
+            "gapAnalysys": 0.2657185628742515
+        }
+    },
+    "red": {
+        "NIFTY": {
+            "net": 0.2836826347305389,
+            "netExtremes": 0.20059880239520958,
+            "gapAnalysys": 0.08832335329341318
+        },
+        "NIFTYBANK": {
+            "net": 0.3226047904191617,
+            "netExtremes": 0.32934131736526945,
+            "gapAnalysys": 0.12050898203592815
+        }
+    },
+    "info": [
+        "GREEN Extreme percent: 0.4%",
+        "RED Extreme percent: 1.0%"
+    ]
+}
