@@ -6,7 +6,6 @@
 """
 import json
 import os
-import requests
 from datetime import datetime,timedelta
 from util import write_to_csv, fetch_data
 
@@ -24,16 +23,6 @@ while (datetime.strptime(i_date,'%Y-%m-%d') <= datetime.strptime(to_date,'%Y-%m-
    response_dict = fetch_data(start, end)
    write_to_csv(candles=response_dict["data"]["candles"]) 
    i_date = (end_obj + timedelta(days = 1)).strftime('%Y-%m-%d')
-    
-   
-# print(respose["data"]["candles"])
-# print (len(respose["data"]["candles"]))
-# dt_string = "2023-06-29T15:00:00+0530"
-# dt_object1 = datetime.strptime(dt_string, "%Y-%m-%dT%H:%M:%S%z")
-# print("dt_object1 =", dt_object1)
-# print("dt_object1 =", dt_object1.year, dt_object1.weekday())
-#    "status": "error",
-# "status": "success",
 
 if not os.path.exists('./output'):
     os.mkdir('./output')
