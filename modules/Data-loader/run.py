@@ -19,7 +19,6 @@ while (datetime.strptime(i_date,'%Y-%m-%d') <= datetime.strptime(to_date,'%Y-%m-
    start = i_date
    end_obj = datetime.strptime(i_date,'%Y-%m-%d') + timedelta(days=60)
    end = end_obj.strftime('%Y-%m-%d')
-   print(start,end)
    response_dict = fetch_data(start, end)
    write_to_csv(candles=response_dict["data"]["candles"]) 
    i_date = (end_obj + timedelta(days = 1)).strftime('%Y-%m-%d')
