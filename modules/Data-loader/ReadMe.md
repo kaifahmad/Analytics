@@ -10,8 +10,9 @@ We want a module that can
  - Refresh Data from last loaded
 
 ### Zerodha API's
-Method: ```plaintext
- GET``` 
+Method: ```
+ GET
+``` 
 ```plaintext
 https://kite.zerodha.com/oms/instruments/historical/<code>/<time_frame>?user_id=<user_id>&oi=1&from=<yyyy-mm-dd>&to=<yyyy-mm-dd>
 ```
