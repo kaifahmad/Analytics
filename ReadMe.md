@@ -8,6 +8,6 @@
 
 # 30th Agenda
 TARGET
-Complete csv manipulation 
+ - Complete csv manipulation 
  - add prevclose
-Complete back testing software
+ - Complete back testing software
