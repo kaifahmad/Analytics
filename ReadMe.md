@@ -5,3 +5,9 @@
 ## Drawings
 
 - [Data Load flow Diagram](images/Data-load.svg)
+
+# 30th Agenda
+TARGET
+Complete csv manipulation 
+ - add prevclose
+Complete back testing software

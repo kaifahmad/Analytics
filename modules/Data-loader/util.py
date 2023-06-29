@@ -15,7 +15,6 @@ def fetch_data(start, end)-> dict:
         headers=headers
         )
     return json.loads(x.text)
-# https://kite.zerodha.com/oms/instruments/historical/256265/15minute?user_id=QV8945&oi=1&from=2023-04-29&to=2023-05-29
 
 
 def write_to_csv(candles:list):
