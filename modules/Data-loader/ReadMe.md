@@ -10,7 +10,8 @@ We want a module that can
  - Refresh Data from last loaded
 
 ### Zerodha API's
-Method: ```
+Method: 
+```plaintext
  GET
 ``` 
 ```plaintext
