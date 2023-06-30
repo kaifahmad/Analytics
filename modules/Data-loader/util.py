@@ -19,12 +19,12 @@ def fetch_data(start, end)-> dict:
     return json.loads(x.text)
 
 
-def write_to_csv(p_candles:list):
+def write_to_csv(p_candles:list, p_prevClose):
     """
     Writes data to the csv file
     """
-    i_date = p_candles[0][0].split('T')[0]
-    close = p_candles[0][4]
+    prevclose = p_prevClose
+    i_date = datetime.strptime(p_candles[0][0], "%Y-%m-%dT%H:%M:%S%z").date()
     for candle in p_candles:
         candle.pop()
 
@@ -44,11 +44,9 @@ def write_to_csv(p_candles:list):
         if not prevclose == 0:
             candle.append(f"{round(((candle[4] - prevclose)/prevclose)*100 , 2)}")
         else:
-            candle.append("0")
+            candle.append("0.0")
 
         print(candle[0],candle[4],prevclose)
-        
-        close = candle[4]
 
         f = open("./output/nifty.csv", "a")
         f.write(",".join(str(c) for c in candle))

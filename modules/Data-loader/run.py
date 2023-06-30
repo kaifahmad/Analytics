@@ -26,16 +26,17 @@ os.remove("./output/nifty.csv") if os.path.exists("./output/nifty.csv") else Non
 while (datetime.strptime(i_date,'%Y-%m-%d') <= datetime.strptime(to_date,'%Y-%m-%d')):
     
     start = i_date
-    # try:
-    #   line = subprocess.check_output(['tail', '-1', "./output/nifty.csv"]).decode('utf-8').strip('\r\n')
-    #   candle = line.split(',')[-1]
-    #   close = line.split(',')[4]
-    # except Exception:
-    close = 0
+    try:
+      line = subprocess.check_output(['tail', '-1', "./output/nifty.csv"]).decode('utf-8').strip('\r\n')
+      close = float(line.split(',')[4])
+    except Exception:
+      close = 0
     end_obj = datetime.strptime(i_date,'%Y-%m-%d') + timedelta(days=LOAD_INTERVAL)
     end = end_obj.strftime('%Y-%m-%d')
     response_dict = fetch_data(start, end)
-    write_to_csv(p_candles = response_dict["data"]["candles"], ) 
+    if len(response_dict["data"]["candles"]) > 0:
+       print(len(response_dict["data"]["candles"]))
+       write_to_csv(p_candles = response_dict["data"]["candles"], p_prevClose = close) 
     i_date = (end_obj + timedelta(days = 1)).strftime('%Y-%m-%d')
 
         
