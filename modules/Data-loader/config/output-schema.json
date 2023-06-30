@@ -7,29 +7,29 @@
             "format": "%Y-%m-%dT%H:%M:%S%z"
         },
         {
-            "name": "TIMESTAMP",
-            "type": "datetime",
-            "format": "%Y-%m-%dT%H:%M:%S%z"
+            "name": "OPEN",
+            "type": "float",
+            "format": ""
         },
         {
-            "name": "TIMESTAMP",
-            "type": "datetime",
-            "format": "%Y-%m-%dT%H:%M:%S%z"
+            "name": "HIGH",
+            "type": "float",
+            "format": ""
         },
         {
-            "name": "TIMESTAMP",
-            "type": "datetime",
-            "format": "%Y-%m-%dT%H:%M:%S%z"
+            "name": "LOW",
+            "type": "float",
+            "format": ""
         },
         {
-            "name": "TIMESTAMP",
-            "type": "datetime",
-            "format": "%Y-%m-%dT%H:%M:%S%z"
+            "name": "CLOSE",
+            "type": "float",
+            "format": ""
         },
         {
-            "name": "TIMESTAMP",
-            "type": "datetime",
-            "format": "%Y-%m-%dT%H:%M:%S%z"
+            "name": "VOLUME",
+            "type": "int",
+            "format": ""
         }
     ]
 }

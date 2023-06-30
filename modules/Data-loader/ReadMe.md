@@ -19,10 +19,10 @@ https://kite.zerodha.com/oms/instruments/historical/<code>/<time_frame>?user_id=
 ### Candle Docs
 | Index | Value |
 | --- | --- |
-| 0  | TIMESTAMP |
+| 0 | TIMESTAMP |
 | 1 | OPEN |
-| 2 ->  | HIGH |
-| 3 ->  | LOW |
-| 4 ->  | CLOSE |
-| 5 ->  | VOLUME |
+| 2 | HIGH |
+| 3 | LOW |
+| 4 | CLOSE |
+| 5 | VOLUME |
 
