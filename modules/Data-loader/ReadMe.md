@@ -8,3 +8,21 @@ We want a module that can
  - Export data to a csv
  - Store data in out Database
  - Refresh Data from last loaded
+
+### Zerodha API's
+Method: GET
+ 
+```plaintext
+https://kite.zerodha.com/oms/instruments/historical/<code>/<time_frame>?user_id=<user_id>&oi=1&from=<yyyy-mm-dd>&to=<yyyy-mm-dd>
+```
+
+### Candle Docs
+| Index | Value |
+| --- | --- |
+| 0 | TIMESTAMP |
+| 1 | OPEN |
+| 2 | HIGH |
+| 3 | LOW |
+| 4 | CLOSE |
+| 5 | VOLUME |
+
