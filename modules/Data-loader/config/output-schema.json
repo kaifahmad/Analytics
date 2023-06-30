@@ -9,27 +9,62 @@
         {
             "name": "OPEN",
             "type": "float",
-            "format": ""
+            "format": "",
+            "description": "Candle body open price"
         },
         {
             "name": "HIGH",
             "type": "float",
-            "format": ""
+            "format": "",
+            "description": "Candle body high price"
         },
         {
             "name": "LOW",
             "type": "float",
-            "format": ""
+            "format": "",
+            "description": "Candle body low price"
         },
         {
             "name": "CLOSE",
             "type": "float",
-            "format": ""
+            "format": "",
+            "description": "Candle body closing price"
         },
         {
             "name": "VOLUME",
             "type": "int",
-            "format": ""
+            "format": "",
+            "description": "Traded volume"
+        },
+        {
+            "name": "DATE",
+            "type": "date",
+            "format": "%Y-%m-%d",
+            "description": "Candle Date"
+        },
+        {
+            "name": "WEEKDAY",
+            "type": "int",
+            "format": "",
+            "description": "Tells about day of the week"
+        },
+        {
+            "name": "CANDLE",
+            "type": "int",
+            "format": "",
+            "description": "Candle code in terms of time"
+        },
+        {
+            "name": "POINTS",
+            "type": "float",
+            "format": "",
+            "description": "Candle close - previous day close"
+        },
+        {
+            "name": "NET RETURN",
+            "type": "float",
+            "format": "",
+            "description": "POINTS in Percentage"
         }
     ]
 }
