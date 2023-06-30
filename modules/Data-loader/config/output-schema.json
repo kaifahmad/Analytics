@@ -1,0 +1,35 @@
+{
+    "field-deleimeter": ",",
+    "columns": [
+        {
+            "name": "TIMESTAMP",
+            "type": "datetime",
+            "format": "%Y-%m-%dT%H:%M:%S%z"
+        },
+        {
+            "name": "TIMESTAMP",
+            "type": "datetime",
+            "format": "%Y-%m-%dT%H:%M:%S%z"
+        },
+        {
+            "name": "TIMESTAMP",
+            "type": "datetime",
+            "format": "%Y-%m-%dT%H:%M:%S%z"
+        },
+        {
+            "name": "TIMESTAMP",
+            "type": "datetime",
+            "format": "%Y-%m-%dT%H:%M:%S%z"
+        },
+        {
+            "name": "TIMESTAMP",
+            "type": "datetime",
+            "format": "%Y-%m-%dT%H:%M:%S%z"
+        },
+        {
+            "name": "TIMESTAMP",
+            "type": "datetime",
+            "format": "%Y-%m-%dT%H:%M:%S%z"
+        }
+    ]
+}
