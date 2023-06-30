@@ -1,5 +1,6 @@
 from datetime import datetime
 import json
+import subprocess
 import requests
 
 def fetch_data(start, end)-> dict:
@@ -18,7 +19,7 @@ def fetch_data(start, end)-> dict:
     return json.loads(x.text)
 
 
-def write_to_csv(p_candles:list, p_prevClose):
+def write_to_csv(p_candles:list):
     """
     Writes data to the csv file
     """
@@ -29,15 +30,23 @@ def write_to_csv(p_candles:list, p_prevClose):
 
         dt_object1 = datetime.strptime(candle[0], "%Y-%m-%dT%H:%M:%S%z")
         if not i_date == dt_object1.date():
-            p_prevClose = close
-            i_date = dt_object1.date()
+            try:
+                line = subprocess.check_output(['tail', '-1', "./output/nifty.csv"]).decode('utf-8').strip('\r\n')
+                prevclose = float(line.split(',')[4])
+                i_date = dt_object1.date()
+            except Exception:
+                prevclose = 0
 
         candle.append(dt_object1.date())
         candle.append(dt_object1.weekday())
         candle.append(f"T{dt_object1.hour}_{dt_object1.minute}")
-        candle.append(f"{round(candle[4] - p_prevClose , 2)}")
-        candle.append(f"{round(((candle[4] - p_prevClose)/p_prevClose)*100 , 2)}")
-        print(candle[0],candle[4],p_prevClose)
+        candle.append(f"{round(candle[4] - prevclose , 2)}")
+        if not prevclose == 0:
+            candle.append(f"{round(((candle[4] - prevclose)/prevclose)*100 , 2)}")
+        else:
+            candle.append("0")
+
+        print(candle[0],candle[4],prevclose)
         
         close = candle[4]
 
