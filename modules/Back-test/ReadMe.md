@@ -10,3 +10,6 @@ We need hard core data to back our strategy before putting our hard earned money
 
 ### Strategy
 Refer [this](../../images/back-test.svg) diagram
+
+### Variable Description
+<table><tbody><tr><td><strong>open_trade</strong></td><td>A Boolean flag that tells about whether we are in trade or not</td></tr><tr><td><strong>trade_type</strong></td><td>0 means LONG and 1 means SHORT</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table>

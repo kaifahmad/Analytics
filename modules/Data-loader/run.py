@@ -8,9 +8,12 @@ import json
 import os
 from datetime import datetime, timedelta
 import subprocess
+import tracemalloc
 from util import write_to_csv, fetch_data
 
 LOAD_INTERVAL = 90
+
+tracemalloc.start()
 
 with open("./config/param_config.json", "r") as f:
     url_config = json.load(f)
@@ -38,6 +41,8 @@ while datetime.strptime(i_date, "%Y-%m-%d") <= datetime.strptime(to_date, "%Y-%m
     end = end_obj.strftime("%Y-%m-%d")
     response_dict = fetch_data(start, end)
     if len(response_dict["data"]["candles"]) > 0:
-        print(len(response_dict["data"]["candles"]))
         write_to_csv(p_candles=response_dict["data"]["candles"], p_prevClose=close)
     i_date = (end_obj + timedelta(days=1)).strftime("%Y-%m-%d")
+
+print(tracemalloc.get_traced_memory())
+tracemalloc.stop()

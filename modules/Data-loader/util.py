@@ -53,8 +53,6 @@ def write_to_csv(p_candles: list, p_prevClose):
         else:
             candle.append("0.0")
 
-        print(candle[0], candle[4], prevclose)
-
         f = open("./output/nifty.csv", "a")
         f.write(",".join(str(c) for c in candle))
         f.write("\n")
