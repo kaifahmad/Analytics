@@ -7,4 +7,4 @@ Entry Criteria
 Exit Criteria
 -  Quite complicated
 - Multiple Exit strategies to be tested to maximize gains
-- Design in [this](images/strategy.svg) flow diagram 
+- Design in [this](../images/back-test.svg) flow diagram 
