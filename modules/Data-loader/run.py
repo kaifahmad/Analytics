@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 import subprocess
 from util import write_to_csv, fetch_data
 
-LOAD_INTERVAL = 1
+LOAD_INTERVAL = 90
 
 with open("./config/param_config.json", "r") as f:
     url_config = json.load(f)
