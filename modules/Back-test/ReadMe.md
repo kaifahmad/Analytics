@@ -9,4 +9,4 @@ We need hard core data to back our strategy before putting our hard earned money
 
 
 ### Strategy
-Refer [this](../images/back-test.svg) diagram
+Refer [this](../../images/back-test.svg) diagram
