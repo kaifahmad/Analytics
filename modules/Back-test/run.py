@@ -1,9 +1,17 @@
+import os
 from util import write_to_csv
 
 open_trade: bool = False
 trade_type = 0
 in_price = 0
 net_points_captured = 0
+
+if not os.path.exists("./output"):
+    os.mkdir("./output")
+
+# remove old file
+os.remove("./output/nifty.csv") if os.path.exists("./output/nifty.csv") else None
+
 with open(
     "../Data-loader/output/nifty.csv", "r"
 ) as file:  # the a opens it in append mode
@@ -33,16 +41,22 @@ with open(
                     ex_price = candle[3]
                     open_trade = False
                     write_to_csv(
-                        p_exit_candle=candle, 
-                        p_captured_points=ex_price - in_price
+                        p_timestamp = line_data[0],
+                        p_exit_candle = candle, 
+                        p_entry_price = in_price,
+                        p_captured_points = ex_price - in_price,
+                        p_direction = trade_type
                     )
-                elif candle[3] > prevCandle[1] and trade_type == 1:
+                elif (candle[3] > prevCandle[1] and trade_type == 1) or line_data[-3] != "T14_45":
                     # exit
                     ex_price = candle[3]
                     open_trade = False
                     write_to_csv(
-                        p_exit_candle=candle, 
-                        p_captured_points=in_price - ex_price
+                        p_timestamp = line_data[0],
+                        p_exit_candle = candle, 
+                        p_entry_price = in_price,
+                        p_captured_points=in_price - ex_price,
+                        p_direction = trade_type
                     )
 
             prevCandle = candle
