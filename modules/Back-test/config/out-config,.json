@@ -34,6 +34,12 @@
             "type": "float",
             "format": "",
             "description": "Points captured"
+        },
+        {
+            "name": "CANDLE",
+            "type": "string",
+            "format": "",
+            "description": "Candle time frame"
         }
     ]
 }
