@@ -19,7 +19,7 @@ def write_to_csv(p_timestamp:str, p_exit_candle: list, p_entry_price, p_captured
     out_rec.append(direction[p_direction])
     out_rec.append(round(p_captured_points,2))
     out_rec.append(p_candle)
-    f = open("./output/nifty.csv", "a")
+    f = open("./output/nifty1.csv", "a")
     f.write(",".join(str(c) for c in out_rec))
     f.write("\n")
     f.close()
