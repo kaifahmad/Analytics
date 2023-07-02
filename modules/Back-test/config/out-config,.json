@@ -1,0 +1,45 @@
+{
+    "field-deleimeter": ",",
+    "columns": [
+        {
+            "name": "DATE",
+            "type": "date",
+            "format": "%Y-%m-%d"
+        },
+        {
+            "name": "MONTH",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "ENTRY_PRICE",
+            "type": "float",
+            "format": "",
+            "description": "Price at which we entered the trade"
+        },
+        {
+            "name": "EXIT_PRICE",
+            "type": "float",
+            "format": "",
+            "description": "Price at which we exited the trade"
+        },
+        {
+            "name": "DIRECTION",
+            "type": "string",
+            "format": "",
+            "description": "Long or Short"
+        },
+        {
+            "name": "POINTS",
+            "type": "float",
+            "format": "",
+            "description": "Points captured"
+        },
+        {
+            "name": "CANDLE",
+            "type": "string",
+            "format": "",
+            "description": "Candle time frame"
+        }
+    ]
+}

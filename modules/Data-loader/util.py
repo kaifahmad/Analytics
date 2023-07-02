@@ -3,23 +3,26 @@ import json
 import subprocess
 import requests
 
-def fetch_data(start, end)-> dict:
+
+def fetch_data(start, end) -> dict:
     """
     Fetches data from the API
-    """ 
+    """
     BASE_URL = "https://kite.zerodha.com/oms/instruments/historical"
-    with open('./config/param_config.json','r') as f:
+    with open("./config/param_config.json", "r") as f:
         url_config = json.load(f)
-    headers = {'authorization': url_config["token"]}
-    print(f"{BASE_URL}/{url_config['zerodha_code']}/{url_config['time_frame']}?user_id={url_config['user_id']}&oi=1&from={start}&to={end}")
+    headers = {"authorization": url_config["token"]}
+    print(
+        f"{BASE_URL}/{url_config['zerodha_code']}/{url_config['time_frame']}?user_id={url_config['user_id']}&oi=1&from={start}&to={end}"
+    )
     x = requests.get(
-        url = f"{BASE_URL}/{url_config['zerodha_code']}/{url_config['time_frame']}?user_id={url_config['user_id']}&oi=1&from={start}&to={end}",
-        headers=headers
-        )
+        url=f"{BASE_URL}/{url_config['zerodha_code']}/{url_config['time_frame']}?user_id={url_config['user_id']}&oi=1&from={start}&to={end}",
+        headers=headers,
+    )
     return json.loads(x.text)
 
 
-def write_to_csv(p_candles:list, p_prevClose):
+def write_to_csv(p_candles: list, p_prevClose):
     """
     Writes data to the csv file
     """
@@ -31,8 +34,12 @@ def write_to_csv(p_candles:list, p_prevClose):
         dt_object1 = datetime.strptime(candle[0], "%Y-%m-%dT%H:%M:%S%z")
         if not i_date == dt_object1.date():
             try:
-                line = subprocess.check_output(['tail', '-1', "./output/nifty.csv"]).decode('utf-8').strip('\r\n')
-                prevclose = float(line.split(',')[4])
+                line = (
+                    subprocess.check_output(["tail", "-1", "./output/nifty.csv"])
+                    .decode("utf-8")
+                    .strip("\r\n")
+                )
+                prevclose = float(line.split(",")[4])
                 i_date = dt_object1.date()
             except Exception:
                 prevclose = 0
@@ -45,8 +52,6 @@ def write_to_csv(p_candles:list, p_prevClose):
             candle.append(f"{round(((candle[4] - prevclose)/prevclose)*100 , 2)}")
         else:
             candle.append("0.0")
-
-        print(candle[0],candle[4],prevclose)
 
         f = open("./output/nifty.csv", "a")
         f.write(",".join(str(c) for c in candle))

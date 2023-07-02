@@ -1,2 +1,4 @@
 modules/Data-loader/output/*
 repo-env
+modules/Data-loader/.vscode/settings.json
+modules/Back-test/output/*
