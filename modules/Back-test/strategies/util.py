@@ -2,7 +2,7 @@ from datetime import datetime
 import json
 
 
-def write_to_csv(p_timestamp:str, p_exit_candle: list, p_entry_price, p_captured_points, p_direction,p_candle):
+def write_to_csv(p_timestamp:str, p_exit_candle: list, p_entry_price, p_captured_points, p_direction, p_candle):
     """
     Writes the outcome to the csv file
     """
