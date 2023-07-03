@@ -24,13 +24,15 @@ if not os.path.exists("./output"):
     os.mkdir("./output")
 
 # remove old file
-os.remove("./output/nifty.csv") if os.path.exists("./output/nifty.csv") else None
+os.remove(f"./output/nifty_{url_config['time_frame']}.csv") if os.path.exists(
+    f'./output/nifty_{url_config["time_frame"]}.csv'
+) else None
 
 while datetime.strptime(i_date, "%Y-%m-%d") <= datetime.strptime(to_date, "%Y-%m-%d"):
     start = i_date
     try:
         line = (
-            subprocess.check_output(["tail", "-1", "./output/nifty.csv"])
+            subprocess.check_output(["tail", "-1", f"./output/nifty_{url_config['time_frame']}.csv"])
             .decode("utf-8")
             .strip("\r\n")
         )
@@ -40,8 +42,13 @@ while datetime.strptime(i_date, "%Y-%m-%d") <= datetime.strptime(to_date, "%Y-%m
     end_obj = datetime.strptime(i_date, "%Y-%m-%d") + timedelta(days=LOAD_INTERVAL)
     end = end_obj.strftime("%Y-%m-%d")
     response_dict = fetch_data(start, end)
+    # print(response_dict)
     if len(response_dict["data"]["candles"]) > 0:
-        write_to_csv(p_candles=response_dict["data"]["candles"], p_prevClose=close)
+        write_to_csv(
+            p_candles=response_dict["data"]["candles"],
+            p_prevClose=close,
+            p_frame=url_config["time_frame"],
+        )
     i_date = (end_obj + timedelta(days=1)).strftime("%Y-%m-%d")
 
 print(tracemalloc.get_traced_memory())
