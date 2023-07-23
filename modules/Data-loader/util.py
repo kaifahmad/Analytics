@@ -22,7 +22,7 @@ def fetch_data(start, end) -> dict:
     return json.loads(x.text)
 
 
-def write_to_csv(p_candles: list, p_prevClose):
+def write_to_csv(p_candles: list, p_prevClose, p_frame):
     """
     Writes data to the csv file
     """
@@ -35,7 +35,7 @@ def write_to_csv(p_candles: list, p_prevClose):
         if not i_date == dt_object1.date():
             try:
                 line = (
-                    subprocess.check_output(["tail", "-1", "./output/nifty.csv"])
+                    subprocess.check_output(["tail", "-1", f"./output/nifty_{p_frame}.csv"])
                     .decode("utf-8")
                     .strip("\r\n")
                 )
@@ -53,7 +53,7 @@ def write_to_csv(p_candles: list, p_prevClose):
         else:
             candle.append("0.0")
 
-        f = open("./output/nifty.csv", "a")
+        f = open(f"./output/nifty_{p_frame}.csv", "a")
         f.write(",".join(str(c) for c in candle))
         f.write("\n")
         f.close()

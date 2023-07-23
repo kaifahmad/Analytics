@@ -2,3 +2,5 @@ modules/Data-loader/output/*
 repo-env
 modules/Data-loader/.vscode/settings.json
 modules/Back-test/output/*
+modules/Back-test/__pycache__/*
+modules/Back-test/strategies/Swing/output/*

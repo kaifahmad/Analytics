@@ -16,5 +16,14 @@
     "direction": [
         "LONG",
         "SHORT"
+    ],
+    "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
     ]
 }
