@@ -1,4 +1,3 @@
-from logging import Logger
 import os
 import sys
 from util import write_to_csv
@@ -21,7 +20,7 @@ if not os.path.exists("./output"):
 
 # remove old file
 os.remove("./output/nifty.csv") if os.path.exists("./output/nifty.csv") else None
-
+COUNTER = 0
 with open(
     "../../../Data-loader/output/nifty_60minute.csv", "r"
 ) as file:  # the a opens it in append mode
@@ -55,6 +54,8 @@ with open(
                         p_max_points = max(max_intrade) - in_price,
                         p_max_loss = min(min_intrade) - in_price
                     )
+                    if (max(max_intrade) - in_price) > 50.0:
+                        COUNTER += 1
             
             elif open_trade and trade_type == 1:
                 max_intrade.append(candle[1])
@@ -74,6 +75,8 @@ with open(
                         p_max_points = in_price - min(min_intrade),
                         p_max_loss = in_price - max(max_intrade)
                     )
+                    if (in_price - min(min_intrade)) > 50.0:
+                        COUNTER += 1
 
             #Entry criteria
             # @long
@@ -105,3 +108,4 @@ with open(
             print(e)
             break
 
+print(COUNTER)

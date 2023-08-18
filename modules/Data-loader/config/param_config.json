@@ -1,8 +1,8 @@
 {
     "from_date": "2015-01-01",
-    "to_date": "2023-06-30",
+    "to_date": "2023-09-30",
     "zerodha_code": 256265,
-    "time_frame": "5minute",
+    "time_frame": "15minute",
     "user_id": "QV8945",
-    "token":  "enctoken V+8VyqrSKy+RQdAwj6EME3yZvk/JqoBLuRoRl/1Bq+DVzt+wHcNJ5+a5VBCM+CiKoAf1mnqWsYPnxIcbZFHaRADq7jlKcMq8LHBf3BujsHdCzVXFK20PnQ=="
+    "token":  "enctoken ztmPQ7e40D3SUeeJTQfbLK902O7G/iNHO8aBl+qJOD/reqGCSF8TQLW/0WbyNlB606VBk9K+BAQP5EbdQK289mYwuBp69Vtgk/ypO20Lb5mpTuYciomd0A=="
 }

@@ -47,9 +47,9 @@ def write_to_csv(p_candles: list, p_prevClose, p_frame):
         candle.append(dt_object1.date())
         candle.append(dt_object1.weekday())
         candle.append(f"T{dt_object1.hour}_{dt_object1.minute}")
-        candle.append(f"{round(candle[4] - prevclose , 2)}")
+        candle.append(f"{round(candle[4] - candle[1] , 2)}")
         if not prevclose == 0:
-            candle.append(f"{round(((candle[4] - prevclose)/prevclose)*100 , 2)}")
+            candle.append(f"{round(((candle[4] - candle[1])/candle[1])*100 , 2)}")
         else:
             candle.append("0.0")
 
