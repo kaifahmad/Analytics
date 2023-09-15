@@ -53,7 +53,7 @@ def write_to_csv(p_candles: list, p_prevClose, p_frame):
         else:
             candle.append("0.0")
 
-        f = open(f"./output/nifty_{p_frame}.csv", "a")
+        f = open(f"./output/niftybank_{p_frame}.csv", "a")
         f.write(",".join(str(c) for c in candle))
         f.write("\n")
         f.close()

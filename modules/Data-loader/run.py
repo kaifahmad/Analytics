@@ -11,7 +11,7 @@ import subprocess
 import tracemalloc
 from util import write_to_csv, fetch_data
 
-LOAD_INTERVAL = 90
+LOAD_INTERVAL = 300
 
 tracemalloc.start()
 
@@ -24,15 +24,15 @@ if not os.path.exists("./output"):
     os.mkdir("./output")
 
 # remove old file
-os.remove(f"./output/nifty_{url_config['time_frame']}.csv") if os.path.exists(
-    f'./output/nifty_{url_config["time_frame"]}.csv'
+os.remove(f"./output/niftybank_{url_config['time_frame']}.csv") if os.path.exists(
+    f'./output/niftybank_{url_config["time_frame"]}.csv'
 ) else None
 
 while datetime.strptime(i_date, "%Y-%m-%d") <= datetime.strptime(to_date, "%Y-%m-%d"):
     start = i_date
     try:
         line = (
-            subprocess.check_output(["tail", "-1", f"./output/nifty_{url_config['time_frame']}.csv"])
+            subprocess.check_output(["tail", "-1", f"./output/niftybank_{url_config['time_frame']}.csv"])
             .decode("utf-8")
             .strip("\r\n")
         )
